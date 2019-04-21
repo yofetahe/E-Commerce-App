@@ -1,0 +1,48 @@
+@model ProductVM
+
+<div class="form-style">
+    <form action="/NewProduct" method="POST">
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Name" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Name"></label>
+            <input asp-for="@Model.NewProduct.Name" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.ProductTypeId" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.ProductTypeId"></label>
+            <select asp-for="@Model.NewProduct.ProductTypeId" class="form-control">
+                <option value="">-</option>
+                @foreach (var productType in @Model.ProductTypes)
+                {
+                    <option value="@productType.ProductTypeId">@productType.TypeName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Size" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Size"></label>
+            <input asp-for="@Model.NewProduct.Size" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Color" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Color"></label>
+            <input asp-for="@Model.NewProduct.Color" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Brand" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Brand"></label>
+            <input asp-for="@Model.NewProduct.Brand" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Image" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Image"></label>
+            <input asp-for="@Model.NewProduct.Image" class="form-control">
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="@Model.NewProduct.Description" class="errorMessage"></span>
+            <label asp-for="@Model.NewProduct.Description"></label>
+            <textarea asp-for="@Model.NewProduct.Description" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-success"> Add </button>
+    </form>
+</div>

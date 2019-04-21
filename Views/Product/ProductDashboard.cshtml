@@ -1,0 +1,43 @@
+@model ProductVM
+
+<partial name="_NewProduct" model="@Model">
+
+<div class="header-title">
+    <P>Product List</P>    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Type</th>
+                <th scope="col">Size</th>
+                <th scope="col">Color</th>
+                <th scope="col">Brand</th>                
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>            
+            @foreach (var product in @Model.Products)
+            {
+                <tr>
+                    <td> @product.Name </td>                        
+                    <td>
+                        @{
+                            int total = 0;
+                            foreach(var stock in @product.Stocks)
+                            {
+                                total = total + stock.InitialQuantity;
+                            }                                
+                        }
+                        @total
+                    </td>
+                    <td> @product.ProductType.TypeName </td>
+                    <td> @product.Size </td>
+                    <td> @product.Color </td>
+                    <td> @product.Brand </td>
+                    <td> @product.Description </td>
+                </tr>                    
+            }            
+        </tbody>
+    </table>
+</div>

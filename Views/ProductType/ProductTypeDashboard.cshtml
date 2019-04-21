@@ -1,0 +1,11 @@
+@model ProductTypeVM
+
+<partial name="_NewProductType" model="@Model.ProductType">
+
+<div class="header-title">
+    <P>Product Types List</P>
+    @foreach (var productType in @Model.ProductTypes)
+    {
+        <p>@productType.TypeName</p>
+    }
+</div>

@@ -1,0 +1,12 @@
+@model ProductType
+
+<div class="form-style">
+    <form asp-action="NewProductType" asp-controller="ProductType" method="post">
+        <div class="form-group">
+            <span asp-validation-for="TypeName" class="errorMessage"></span>
+            <label asp-for="TypeName"></label>
+            <input asp-for="TypeName" class="form-control">
+        </div>        
+        <button class="btn btn-success"> Add </button>
+    </form>
+</div>

@@ -1,0 +1,151 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    /* padding-top: 50px; */
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 25px;    
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+
+
+.NavLinks{
+    display: inline-block;
+    padding-left: 20px;
+    font-size: 16px;
+}
+.form-style{
+    display: inline-block;
+    width: 29.5%;
+    vertical-align: top;
+    padding-right: 25px;
+}
+.header-title{
+    display: inline-block;
+    width: 69.5%;
+    padding-left: 20px;
+    vertical-align: top;
+}
+.errorMessage{
+    color: red;
+    display: block;
+}
+.product-display{
+    display: inline-block;
+    width: 19.5%;
+    min-height: 300px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 1px #c9c9c9;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 3px;
+}
+.product-image{
+    min-height: 150px;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+}
+img.product-thumb{
+    width: 150px;
+    height: auto;
+}
+.category-name-tab{
+    background-color: #d9230f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 35px;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+.product-category{
+    border-bottom: 1px solid #d9230f;
+    margin: 20px 0px;
+}
+.product-detail{
+    width: 80%;
+    display: inline-block;
+    padding-left: 20px;
+}
+.inline-form{
+    border-bottom: 1px solid #d9230f;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.form-group{
+    margin-bottom: 5px;
+}
+.form-small{
+    width: 40%;
+}
+/* .slide-banner{
+    margin-top: 80px;
+} */
+.add-banner{
+    margin: 10px 0px;
+}
+.add-banner>img{
+    width: 100% !important;
+    height: auto;
+}
+.price-tag{
+    color: red;
+}
+.product-image-container{
+    display: inline-block;
+    width: 39.5%;
+    min-height: 300px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 1px #c9c9c9;
+    padding: 15px;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 3px;
+}
+.product-image-large{
+    width: 400px;
+    height: auto;    
+}
+.product-detail-info{
+    display: inline-block;
+    padding-left: 20px;
+    width: 60%;
+}
+.product-title{
+    font-size: 20px;
+    font-weight: bold;
+}

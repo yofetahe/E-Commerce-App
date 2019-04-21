@@ -1,0 +1,65 @@
+@model StockVM
+
+<div class="product-display">
+    <div class="product-image">
+        <img class="product-thumb" src="@Model.Product.Image" alt="ProductImage">
+    </div>
+    <p> @Model.Product.Name </p>
+    <p> <b>Size:</b> @Model.Product.Size </p>
+    <p> <b>Color:</b> @Model.Product.Color </p>
+    <p> <b>Brand:</b> @Model.Product.Brand </p>
+    <p> <b>Description:</b> @Model.Product.Description </p>
+</div>
+
+<div class="product-detail">
+
+    <div class="inline-form">
+        <form action="/NewStock/@Model.Product.ProductId" method="post" class="form-inline my-2 my-lg-0" >
+            <div class="form-group mr-sm-2 my-2">
+                <span asp-validation-for="@Model.NewStock.GRN_Number" class="errorMessage"></span><br>
+                <label asp-for="@Model.NewStock.GRN_Number" class="mr-sm-2"></label>
+                <input asp-for="@Model.NewStock.GRN_Number" class="form-control">
+            </div>
+            <div class="form-group mr-sm-2">
+                <span asp-validation-for="@Model.NewStock.InitialQuantity" class="errorMessage"></span>
+                <label asp-for="@Model.NewStock.InitialQuantity" class="mr-sm-2"></label>
+                <input asp-for="@Model.NewStock.InitialQuantity" class="form-control">
+            </div>
+            <div class="form-group mr-sm-2">
+                <span asp-validation-for="@Model.NewStock.ReorderBalance" class="errorMessage"></span>
+                <label asp-for="@Model.NewStock.ReorderBalance" class="mr-sm-2"></label>
+                <input asp-for="@Model.NewStock.ReorderBalance" class="form-control">
+            </div>
+            <div class="form-group mr-sm-2">
+                <span asp-validation-for="@Model.NewStock.UnitePrice" class="errorMessage"></span>
+                <label asp-for="@Model.NewStock.UnitePrice" class="mr-sm-2"></label>
+                <input asp-for="@Model.NewStock.UnitePrice" class="form-control">
+            </div>
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">Add Stock</button>
+        </form>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">GRN Number</th>
+                <th scope="col">Initial Quantity</th>
+                <th scope="col">Remaining Balance</th>
+                <th scope="col">Re-Order Balance</th>
+                <th scope="col">Unit Price</th>                
+            </tr>
+        </thead>
+        <tbody>            
+            @foreach (var stock in @Model.Product.Stocks)
+            {
+                <tr>
+                    <td> @stock.GRN_Number </td>
+                    <td> @stock.InitialQuantity </td>
+                    <td> @stock.RemainingBalance </td>
+                    <td> @stock.ReorderBalance </td>
+                    <td> @stock.UnitePrice </td>
+                </tr>                    
+            }            
+        </tbody>
+    </table>
+</div>

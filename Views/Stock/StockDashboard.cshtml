@@ -1,0 +1,38 @@
+@model List<Product>
+
+<div>
+    
+    <P>Product List</P>
+    
+    @{
+        string ProductCategory = "";
+        string PrevProductCategory = "";
+    }
+    @foreach (var product in @Model)
+    {
+        ProductCategory = @product.ProductType.TypeName;
+        if(ProductCategory != PrevProductCategory)
+        {
+            <div class="product-category">
+                <div class="category-name-tab"> @product.ProductType.TypeName </div>
+            </div>
+        }
+
+        <div class="product-display">
+            <div class="product-image">
+                <img class="product-thumb" src="@product.Image" alt="ProductImage">
+            </div>
+            <p> @product.Name </p>
+            <p> 
+                <b>Size:</b> @product.Size | 
+                <b>Color:</b> @product.Color |
+                <b>Brand:</b> @product.Brand 
+            </p>
+            <p> <a href="StockProductDetail/@product.ProductId">Product Detail</a> </p>            
+        </div>
+
+        PrevProductCategory = ProductCategory;
+    }
+        
+
+

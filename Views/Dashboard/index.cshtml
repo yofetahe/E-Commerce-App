@@ -1,0 +1,67 @@
+@model DashboardVM
+
+<div class="slide-banner">
+    <partial name="_BannerAd.cshtml"></partial>
+</div>
+
+<div class="product-category">
+    <div class="category-name-tab"> New Arrivals </div>
+</div>
+
+@foreach (var product in @Model.NewArrivalStocks)
+    {
+        <div class="product-display">
+            <div class="product-image">
+                <img class="product-thumb" src="@product.Product.Image" alt="ProductImage">
+            </div>
+            <p>
+                <span class="price-tag"> $@product.UnitePrice </span>                
+                <br> 
+                @product.Product.Name
+            </p>
+            <p> 
+                <a href="ViewProductDetail/@product.ProductId" class="btn btn-primary btn-sm" style="width: 100px;">
+                    <img src="~/images/play_circle.png" alt="ShoppingCart" srcset="">
+                    View Detail
+                </a> 
+            </p>             
+        </div>
+    }
+
+<div class="add-banner">
+    <img src="~/images/add_banner_2.jpg" alt="add_banner">
+</div>
+
+@{
+        string ProductCategory = "";
+        string PrevProductCategory = "";
+    }
+    @foreach (var product in @Model.Stocks)
+    {
+        ProductCategory = @product.Product.ProductType.TypeName;
+        if(ProductCategory != PrevProductCategory)
+        {
+            <div class="product-category">
+                <div class="category-name-tab"> @product.Product.ProductType.TypeName </div>
+            </div>
+        }
+
+        <div class="product-display">
+            <div class="product-image">
+                <img class="product-thumb" src="@product.Product.Image" alt="ProductImage">
+            </div>            
+            <p> 
+                <span class="price-tag"> $@product.UnitePrice </span>  
+                <br/>
+                @product.Product.Name              
+            </p>
+            <p> 
+                <a href="ViewProductDetail/@product.ProductId" class="btn btn-primary btn-sm" style="width: 100px;">
+                    <img src="~/images/play_circle.png" alt="ShoppingCart" srcset="">
+                    View Detail
+                </a> 
+            </p>            
+        </div>
+
+        PrevProductCategory = ProductCategory;
+    }

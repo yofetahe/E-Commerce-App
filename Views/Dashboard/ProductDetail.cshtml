@@ -1,0 +1,25 @@
+@model Product
+
+<div class="product-image-container">
+    <img class="product-image-large" src="@Model.Image" alt="ProductImage">
+</div>
+
+<div class="product-detail-info">
+    <p class="product-title"> @Model.Name </p>
+    <hr>
+    <p> <b>Size:</b> @Model.Size </p>
+    <p> <b>Color:</b> @Model.Color </p>
+    <p> <b>Brand:</b> @Model.Brand </p>
+    <p> <b>Description:</b> @Model.Description </p>
+    <p> 
+        <a href="addToCart/'@Model.ProductId'" class="btn btn-primary btn-sm">
+            <img src="~/images/add_shopping_cart.png" alt="ShoppingCart" srcset="">
+            Add to Cart
+        </a>
+     
+        <a href="ViewProductDetail/@Model.ProductId" class="btn btn-primary btn-sm" style="width: 100px;">
+            <img src="~/images/play_circle.png" alt="ShoppingCart" srcset="">
+            Now Buy
+        </a> 
+    </p>  
+</div>
